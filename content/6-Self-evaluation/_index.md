@@ -1,39 +1,30 @@
 ---
-title: "Self-Assessment"
+title: "Self-evaluation"
 date: 2024-01-01
 weight: 6
 chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+Throughout the 12-week internship, I pushed myself to excellently complete the set goals. Below is my personal self-evaluation based on the program's criteria:
 
-During my internship at **[Company/Organization Name]** from **[start date]** to **[end date]**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
-I participated in **[briefly describe the main project or task]**, through which I improved my skills in **[list skills: programming, analysis, reporting, communication, etc.]**.  
+### 1. Knowledge: Good
+Mastered and practically deployed 9 core AWS services (EC2, VPC, S3, Kinesis, Lambda, Athena, GuardDuty...). Furthermore, I successfully integrated this Cloud Serverless architecture with a Web App platform (MERN Stack) to create a complete SOC Dashboard.
 
-In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
+### 2. Ability to Learn: Good
+From a student without much experience in Big Data and Cloud Security, I taught myself AWS documentation, learned how to write Node.js Lambda to filter Logs, and learned to use Athena Queries instead of SQL Server.
 
-To objectively reflect on my internship period, I would like to evaluate myself based on the following criteria:
+### 3. Proactiveness: Good
+Not stopping at a template project, I decided to build a **Hybrid Architecture** system. I proactively researched how to Embed results from AWS QuickSight into the React page to enhance the project's visual appeal.
 
-| No. | Criteria                            | Description                                                                                      | Good | Fair | Average |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---- | ------- |
-| 1   | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ✅    | ☐    | ☐       |
-| 2   | **Ability to learn**                | Ability to absorb new knowledge and learn quickly                                                | ☐    | ✅    | ☐       |
-| 3   | **Proactiveness**                   | Taking initiative, seeking out tasks without waiting for instructions                            | ✅    | ☐    | ☐       |
-| 4   | **Sense of responsibility**         | Completing tasks on time and ensuring quality                                                    | ✅    | ☐    | ☐       |
-| 5   | **Discipline**                      | Adhering to schedules, rules, and work processes                                                 | ☐    | ☐    | ✅       |
-| 6   | **Progressive mindset**             | Willingness to receive feedback and improve oneself                                              | ☐    | ✅    | ☐       |
-| 7   | **Communication**                   | Presenting ideas and reporting work clearly                                                      | ☐    | ✅    | ☐       |
-| 8   | **Teamwork**                        | Working effectively with colleagues and participating in teams                                   | ✅    | ☐    | ☐       |
-| 9   | **Professional conduct**            | Respecting colleagues, partners, and the work environment                                        | ✅    | ☐    | ☐       |
-| 10  | **Problem-solving skills**          | Identifying problems, proposing solutions, and showing creativity                                | ☐    | ✅    | ☐       |
-| 11  | **Contribution to project/team**    | Work effectiveness, innovative ideas, recognition from the team                                  | ✅    | ☐    | ☐       |
-| 12  | **Overall**                         | General evaluation of the entire internship period                                               | ✅    | ☐    | ☐       |
+### 4. Discipline: Good
+Fully completed 3 technical Blogs, maintained a 12-week Worklog, and attended 5/10 office sessions (registered for all but some were not approved due to limited capacity). Completed the report on time with good quality.
 
-### Needs Improvement
+### 5. Communication & Teamwork: Fair
+Actively communicated with mentors and friends in the AWS Study Group. Shared learned knowledge through blogs to help the community grow.
 
-* Strengthen discipline and strictly comply with the rules and regulations of the company or any organization  
-* Improve problem-solving thinking  
-* Enhance communication skills in both daily interactions and professional contexts, including handling situations effectively
+### 6. Problem Solving: Good
+When facing the issue of VPC Flow Logs generating too much data, I analyzed and solved the problem by using Kinesis Firehose to batch data before writing to S3, preventing system bottlenecks and saving costs.
+
+### 7. Contribution to Project: Good
+The final product (AWS Observability & Security Dashboard) is not just a simple Lab but a complete MERN Stack application integrated with security (GuardDuty, IAM), truly reflecting the capabilities of a real Software Engineer.

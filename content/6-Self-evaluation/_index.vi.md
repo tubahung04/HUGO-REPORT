@@ -1,40 +1,30 @@
 ---
-title: "Tự đánh giá"
+title: "Tự đánh giá (Self-evaluation)"
 date: 2024-01-01
 weight: 6
 chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+Trong suốt 12 tuần thực tập, tôi đã nỗ lực hết mình để hoàn thành xuất sắc các mục tiêu đề ra. Dưới đây là bảng tự đánh giá cá nhân dựa trên các tiêu chí của chương trình:
 
-Trong suốt thời gian thực tập tại **[Tên công ty/tổ chức]** từ **[ngày bắt đầu]** đến **[ngày kết thúc]**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
-Tôi đã tham gia **[mô tả ngắn gọn dự án hoặc công việc chính]**, qua đó cải thiện kỹ năng **[liệt kê kỹ năng: lập trình, phân tích, viết báo cáo, giao tiếp…]**.  
+### 1. Kiến thức: Tốt
+Đã nắm vững và triển khai thực tế 9 dịch vụ cốt lõi của AWS (EC2, VPC, S3, Kinesis, Lambda, Athena, GuardDuty...). Hơn thế nữa, tôi đã kết hợp thành công kiến trúc Cloud Serverless này với nền tảng Web App (MERN Stack) để tạo ra một SOC Dashboard hoàn chỉnh.
 
-Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân thủ nội quy, và tích cực trao đổi với đồng nghiệp để nâng cao hiệu quả công việc.
+### 2. Khả năng học hỏi: Tốt
+Từ một sinh viên chưa có nhiều kinh nghiệm về Big Data và Security trên Cloud, tôi đã tự mày mò tài liệu AWS, học cách viết Lambda bằng Node.js để filter Log, và biết cách dùng Athena Query thay vì SQL Server.
 
-Để phản ánh một cách khách quan quá trình thực tập, tôi xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
+### 3. Tính chủ động: Tốt
+Không dừng lại ở mức dự án mẫu, tôi đã tự quyết định xây dựng một hệ thống **Kiến trúc Lai (Hybrid)**. Tôi chủ động tìm hiểu cách nhúng kết quả (Embed) từ AWS QuickSight vào trang React để tăng tính trực quan cho dự án.
 
+### 4. Kỷ luật: Tốt
+Hoàn thành đầy đủ 3 bài Blogs kỹ thuật, ghi chép Worklog đều đặn 12 tuần, và tham dự 5/10 buổi lên văn phòng (đã đăng ký đầy đủ nhưng một số buổi không được duyệt do số lượng giới hạn). Hoàn thành báo cáo đúng hạn với chất lượng tốt.
 
-| STT | Tiêu chí                            | Mô tả                                                                                            | Tốt | Khá | Trung bình |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
-| 1   | **Kiến thức và kỹ năng chuyên môn** | Hiểu biết về ngành, áp dụng kiến thức vào thực tế, kỹ năng sử dụng công cụ, chất lượng công việc | ✅   | ☐   | ☐          |
-| 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ☐   | ✅   | ☐          |
-| 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ✅   | ☐   | ☐          |
-| 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng hạn, đảm bảo chất lượng                                                | ✅   | ☐   | ☐          |
-| 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ☐   | ☐   | ✅          |
-| 6   | **Tính cầu tiến**                   | Sẵn sàng nhận feedback và cải thiện bản thân                                                     | ☐   | ✅   | ☐          |
-| 7   | **Giao tiếp**                       | Trình bày ý tưởng, báo cáo công việc rõ ràng                                                     | ☐   | ✅   | ☐          |
-| 8   | **Hợp tác nhóm**                    | Làm việc hiệu quả với đồng nghiệp, tham gia nhóm                                                 | ✅   | ☐   | ☐          |
-| 9   | **Ứng xử chuyên nghiệp**            | Tôn trọng đồng nghiệp, đối tác, môi trường làm việc                                              | ✅   | ☐   | ☐          |
-| 10  | **Tư duy giải quyết vấn đề**        | Nhận diện vấn đề, đề xuất giải pháp, sáng tạo                                                    | ☐   | ✅   | ☐          |
-| 11  | **Đóng góp vào dự án/tổ chức**      | Hiệu quả công việc, sáng kiến cải tiến, ghi nhận từ team                                         | ✅   | ☐   | ☐          |
-| 12  | **Tổng thể**                        | Đánh giá chung về toàn bộ quá trình thực tập                                                     | ✅   | ☐   | ☐          |
+### 5. Giao tiếp & Teamwork: Khá
+Luôn tích cực trao đổi với các mentor và bạn bè trong nhóm AWS Study Group. Chia sẻ kiến thức học được qua các bài blog để cộng đồng cùng phát triển.
 
-### Cần cải thiện
+### 6. Giải quyết vấn đề: Tốt
+Khi đối mặt với việc VPC Flow Logs sinh ra quá nhiều dữ liệu, tôi đã phân tích và giải quyết vấn đề bằng cách dùng Kinesis Firehose để batch data trước khi ghi vào S3, giúp hệ thống không bị nghẽn cổ chai và tiết kiệm chi phí.
 
-* Nâng cao tính kỹ luật, chấp hành nghiêm chỉnh nội quy của công ty hoặc bất kỳ trong một tổ chức nào
-* Cải thiện trong cách tư duy giải quyết vấn đề
-* Học cách giao tiếp tốt hơn trong giao tiếp hằng ngày và trong công việc, xử lý tình huống
+### 7. Đóng góp cho dự án: Tốt
+Sản phẩm cuối cùng (AWS Observability & Security Dashboard) không chỉ là một bài Lab đơn thuần mà là một ứng dụng có giao diện MERN Stack hoàn chỉnh, tích hợp bảo mật (GuardDuty, IAM), thể hiện đúng năng lực của một Software Engineer thực thụ.

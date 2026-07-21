@@ -1,31 +1,19 @@
 ---
-title: "Blog 1"
+title: "Blog 1: Cost Optimization for Big Data Logs with S3 and Kinesis Firehose"
 date: 2024-01-01
 weight: 1
 chapter: false
-pre: " <b> 3.1. </b> "
+pre: " <b> 1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+### Introduction
+When building the **AWS Observability & Security Dashboard**, one of the biggest challenges was processing massive amounts of data (Big Data) from VPC Flow Logs and CloudTrail without breaking the bank. Instead of using traditional databases, I designed a completely Serverless Data Pipeline.
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+### Architectural Solution
+I used a combination of **Amazon Kinesis Data Firehose** and **Amazon S3**:
+1. **Collection and Batching**: Kinesis Firehose doesn't write single log lines immediately to S3. Instead, it batches the network flows into large chunks (e.g., once a minute). This reduces the number of PUT requests to S3 by thousands of times, saving massive costs.
+2. **Cleaning with Lambda**: Before writing to S3, Firehose automatically invokes the my-log-filter Lambda function to format the logs into standard JSON.
+3. **Cold Storage on S3**: The cleaned data is pushed into the my-aws-bucket-nhom-2026 bucket. S3 is the cheapest and most durable Object Storage on AWS.
 
-Key points to know:
-
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
-
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
-
-...Image...
-
-...Link...
-
-...Guide...
+### Results
+By applying this model, my Backend system (MERN Stack) doesn't have to carry the heavy lifting of data processing. All Big Data processing is handled seamlessly by AWS for just a few cents a month (Pay-as-you-go). This is a standard architecture for Cloud data processing!

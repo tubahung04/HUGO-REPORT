@@ -1,115 +1,78 @@
 ---
-title: "Proposal"
+title: "Project Proposal"
 date: 2024-01-01
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
-
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# AWS Observability & Security Dashboard
+## A Hybrid Security Analytics Solution: MERN Stack Web App and AWS Data Pipeline
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+The AWS Observability & Security Dashboard is a centralized Security Operations Center (SOC) designed using a Hybrid Architecture. The application leverages the power of the **MERN Stack (MongoDB, Express, React, Node.js)** to build the user interface and manage application data (Users, Roles, Alert Statuses). Simultaneously, the system connects directly to an **AWS Serverless Data Pipeline** (Kinesis, S3, Athena, GuardDuty) via the AWS SDK to collect and analyze massive log data in real-time. By combining these, the project delivers a smooth software experience while harnessing the Big Data capabilities of the cloud.
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+*Current Problems*
+In large-scale Cloud environments, log data (VPC Flow Logs, CloudTrail) is enormous. Manually analyzing this to find bandwidth-consuming IPs or detect network intrusions is impossible. Traditional tools face two hurdles:
+1. Expensive SQL infrastructure costs when processing Big Data.
+2. Lack of a flexible, customizable UI tailored to the needs of different departments (Admin, SecOps).
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+*Proposed Solution*
+The project adopts a decoupled approach:
+- **Web Component (Frontend + Node.js Backend + MongoDB)**: Handles the UI, Authentication (JWT), Role-Based Access Control (RBAC), and stores the status of incident alerts. MongoDB enables lightning-fast and highly customizable application data retrieval.
+- **AWS Component (Data Pipeline)**: Handles the "heavy lifting" of Log collection and analysis. Kinesis Firehose streams logs to S3. Amazon Athena performs SQL queries on S3. Node.js calls Athena's API to fetch results (e.g., Top accessed IPs) and returns them to React for rendering.
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+*Benefits and ROI*
+The Hybrid architecture optimizes costs to the maximum. MongoDB stores lightweight application data completely for free, while AWS charges only for data scanned (Pay-as-you-go). This combination showcases the comprehensive programming capabilities of a Software Engineer: capable of building Fullstack software while integrating and processing big data on AWS.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+The project is a perfect intersection of Software Engineering and Cloud Architecture.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+![AWS Data Pipeline Architecture](/images/Diagram.png)
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+*AWS Data Flow (Data Engine)*
+- **Amazon S3**: Stores Log data (Data Lake).
+- **Amazon Kinesis Firehose**: Real-time log data streaming.
+- **AWS Lambda**: Processes, cleanses, and transforms data before S3.
+- **Amazon Athena**: Serverless Big Data SQL querying on S3.
+- **Amazon GuardDuty**: Detects and identifies malicious IPs.
+- **Amazon QuickSight**: BI Dashboard design embedded into React.
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
-
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+*Web Application (Web App)*
+- **Frontend (ReactJS + TailwindCSS)**: Glassmorphism UI, Recharts (Charts), and react-simple-maps (Threat Map).
+- **Backend (Node.js)**: API Gateway connecting to MongoDB (User Auth) and calling **AWS SDK** (fetching Athena/GuardDuty data).
+- **Database (MongoDB)**: Manages User information, RBAC Roles, JWT Tokens, and Incident Ticket statuses.
 
 ### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+*Implementation Phases*
+1. **Web Setup**: Initialize React, Node.js, and MongoDB. Build Authentication (JWT) and RBAC.
+2. **AWS Pipeline Setup**: Enable VPC Flow Logs/CloudTrail, configure Kinesis Firehose to stream to S3 via a Lambda Processor.
+3. **Backend - AWS Integration**: Program Node.js using the AWS SDK to connect to Athena, retrieving the Top IP list and GuardDuty Findings.
+4. **UI Development**: Draw Recharts graphs, display the World Map scanning radar at malicious IPs. Embed QuickSight.
+5. **Completion**: End-to-End testing of the entire flow from MongoDB to AWS S3. Write documentation.
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
-
-### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+### 5. Roadmap & Milestones (12 Weeks)
+- *Month 1 (Weeks 1-4)*: Design the Hybrid architecture, initialize the MERN Stack project, design the DB Schema, and complete JWT Login and RBAC.
+- *Month 2 (Weeks 5-8)*: Build the AWS Data Pipeline (Kinesis -> Lambda -> S3). Node.js calls the AWS SDK to query Athena and populates the Network Traffic table on the Web.
+- *Month 3 (Weeks 9-12)*: Integrate GuardDuty onto the Threat Map. Use MongoDB to create an Alert Management feature (changing incident statuses). Embed QuickSight. Final report.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
-
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
-
-Total: $0.7/month, $8.40/12 months
-
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+The Hybrid model leverages MongoDB Atlas's Free Tier and AWS Serverless mechanisms:
+- *MongoDB Atlas*: Free.
+- *Web App (Vercel/Render)*: Free.
+- *Kinesis & Lambda*: Very minimal cost based on requests.
+- *Amazon Athena*: $5 per 1TB of data scanned.
+- *Amazon QuickSight*: The highest cost driver, strictly controlled by turning it on only during demos.
 
 ### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+*Risk Matrix*
+- AWS Credentials leak from the Node.js application (Impact: Very High, Probability: Medium).
+- Web UI lagging when simultaneously rendering Recharts and react-simple-maps (Impact: Medium, Probability: Medium).
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
-
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+*Mitigation Strategies*
+- Use IAM Roles instead of hardcoded Access Keys. Place all configuration in a `.env` file and push to `.gitignore`.
+- Use `useMemo` and `useCallback` in React Frontend to prevent unnecessary map re-renders.
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+WebAws serves as a perfect testament to Software Engineering (MERN) and Cloud Computing (AWS) skills. It is not just a static interface but a powerful Portal, capable of sophisticated access control via MongoDB while having the processing muscle to handle massive log volumes through the AWS Serverless ecosystem.

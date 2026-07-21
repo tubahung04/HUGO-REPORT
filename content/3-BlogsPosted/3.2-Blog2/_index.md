@@ -1,31 +1,20 @@
 ---
-title: "Blog 2"
+title: "Blog 2: Serverless Data Querying with Amazon Athena and Web App Integration"
 date: 2024-01-01
-weight: 1
+weight: 2
 chapter: false
-pre: " <b> 3.2. </b> "
+pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+### Context
+After having an S3 Data Lake filled with JSON log files (as shared in Blog 1), how can the Node.js Backend system retrieve the Top 5 IP addresses showing anomalous signs (constantly REJECTED)?
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+### Solution with Amazon Athena
+Instead of provisioning and operating an expensive SQL Server or Elasticsearch system, I used **Amazon Athena**.
+Athena is a Serverless service that allows running SQL queries directly against static files stored in S3.
+SELECT srcAddr, COUNT(*) as hit_count FROM vpc_flow_logs WHERE action = 'REJECT' GROUP BY srcAddr ORDER BY hit_count DESC LIMIT 5;
 
-Key points to know:
-
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
-
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
-
-...Image...
-
-...Link...
-
-...Guide...
+### Integration into the MERN Stack System
+In the Hybrid architecture of the project, my React Frontend displays a beautiful SOC Dashboard. When users want to view security reports, the Node.js Backend uses the aws-sdk to send SQL queries to Athena.
+Athena charges based on Data Scanned - usually costing less than $0.01 per query. The results are then returned to the Backend and rendered on React.
+The combination of a traditional Web App and AWS Analytics has brought incredible power to the system!

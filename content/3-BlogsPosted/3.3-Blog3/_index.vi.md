@@ -1,31 +1,18 @@
 ---
-title: "Blog 3"
+title: "Blog 3: Giám sát an ninh đám mây tự động bằng Amazon GuardDuty"
 date: 2024-01-01
-weight: 1
+weight: 3
 chapter: false
-pre: " <b> 3.3. </b> "
+pre: " <b> 3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
+### Tầm quan trọng của An ninh Đám mây
+Trong quá trình triển khai dự án, tôi nhận ra rằng việc chỉ lưu trữ Log là chưa đủ. Các kỹ sư hệ thống cần được cảnh báo ngay lập tức nếu có ai đó đang cố gắng thâm nhập vào tài khoản AWS của họ.
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+### Sức mạnh của Amazon GuardDuty
+Tôi đã cấu hình **Amazon GuardDuty** - một dịch vụ phát hiện mối đe dọa sử dụng Trí tuệ nhân tạo (AI) và Machine Learning. GuardDuty liên tục phân tích VPC Flow Logs và CloudTrail để tìm kiếm các dấu hiệu bất thường.
+Trong một kịch bản kiểm thử, tôi đã cố tình sử dụng thông tin xác thực Root (Root credentials) để gọi API GetCostAndUsage. Gần như ngay lập tức, GuardDuty đã phát hiện và tạo ra một cảnh báo (Finding):
+> "The API GetCostAndUsage was invoked using root credentials."
 
-Các điểm chính cần nắm:
-
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
-
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
-
-...Hình ảnh...
-
-...Link...
-
-...Hướng dẫn...
+### Bài học rút ra
+Việc sử dụng tài khoản Root cho các tác vụ hàng ngày là một lỗ hổng bảo mật cực kỳ nghiêm trọng. Qua dự án này, tôi đã áp dụng nguyên tắc **Quyền tối thiểu (Principle of Least Privilege)**: chỉ tạo các IAM User cụ thể, gán cho họ đúng những quyền cần thiết thay vì dùng quyền Root. GuardDuty đóng vai trò như một người bảo vệ thầm lặng, giúp đảm bảo toàn bộ hệ thống AWS luôn an toàn 24/7.

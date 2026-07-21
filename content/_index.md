@@ -8,30 +8,29 @@ chapter: false
     
 # Internship Report
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
 ### Student Information:
-&emsp; **Full Name:** Nguyen Van A
+&emsp; **Full Name:** Tu Ba Hung
 
-&emsp; **Phone Number:** 0989888999 
+&emsp; **Student ID (MSSV):** 2280608859
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Phone Number:** 0981092338
+
+&emsp; **Email:** Tubahung03@gmail.com
 
 &emsp; **University:** Ho Chi Minh City University of Technology and Education
 
 &emsp; **Major:** Information Technology
 
-&emsp; **Class:** AWS082025
+&emsp; **Class:** 22DTHD6
 
 &emsp; **Internship Company:** Amazon Web Services Viet Nam Company Limited
 
 &emsp; **Internship Position:** Workforce Bootcamp - First Cloud AI Journey
 
-&emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
+&emsp; **Internship Duration:** From 21/04/2026 to 12/07/2026
 
-![Your profile picture](/images/avatar.png)
+![Your profile picture](/images/TuBaHung.jpg)
 
 ### Report Content
 
