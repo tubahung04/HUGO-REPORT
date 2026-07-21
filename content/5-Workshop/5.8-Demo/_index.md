@@ -11,7 +11,7 @@ pre: " <b> 5.8. </b> "
 ### Source Code
 The complete source code for this project (Frontend, Backend, and AWS infrastructure configuration) is available on GitHub:
 
-🔗 **GitHub Repository:** [https://github.com/tubahung04/HUGO-REPORT.git]
+🔗 **GitHub Repository:** [https://github.com/tubahung04/WebAws]
 
 ### Live Demo
 A short video/screen recording demonstrating the AWS Observability & Security Dashboard in action:
