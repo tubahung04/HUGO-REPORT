@@ -11,7 +11,7 @@ pre: " <b> 5.8. </b> "
 ### Mã nguồn (Source Code)
 Toàn bộ mã nguồn của dự án (Frontend, Backend và cấu hình hạ tầng AWS) được lưu trữ tại GitHub:
 
-🔗 **GitHub Repository:** [https://github.com/tubahung04/HUGO-REPORT.git]
+🔗 **GitHub Repository:** [https://github.com/tubahung04/WebAws]
 
 ### Demo trực tiếp
 Video/ghi hình màn hình minh họa hoạt động thực tế của AWS Observability & Security Dashboard:
