@@ -7,9 +7,9 @@ pre: " <b> 1. </b> "
 ---
 
 ### Thông tin sự kiện
-* **Tên sự kiện**: AWS Cloud & Data Pipeline Workshop
+* **Tên sự kiện**: Event CD AWS
 * **Thời gian**: Tháng 5/2026
-* **Địa điểm**: TP.HCM / Online
+* **Địa điểm**: TP.HCM / Offline
 * **Vai trò**: Người tham dự (Attendee)
 
 ### Nội dung chính
