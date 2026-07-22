@@ -13,7 +13,7 @@ Xin chào mọi người,
 Trong quá trình tìm hiểu về AWS, mình thường đọc các bài viết trên **AWS GameTech Blog** để xem các doanh nghiệp đang ứng dụng dịch vụ AWS như thế nào vào những bài toán thực tế. Gần đây mình đọc được bài viết ["Building an AI game testing agent with Amazon Bedrock"](https://aws.amazon.com/vi/blogs/gametech/building-an-ai-game-testing-agent-with-amazon-bedrock/) và thấy đây là một chủ đề khá thú vị, đặc biệt với những ai đang quan tâm đến Generative AI hoặc AI Agent.
 
 Ban đầu mình nghĩ bài viết sẽ chủ yếu giới thiệu về Amazon Bedrock hoặc các mô hình AI mà AWS đang cung cấp. Nhưng sau khi đọc xong, điều mình thấy giá trị nhất lại không nằm ở công nghệ riêng lẻ mà là cách AWS kết hợp AI với quy trình kiểm thử game để tự động hóa một công việc vốn rất tốn thời gian.
-![Blog 1](/images/Blog/blog1.jpg)
+![Blog 1](../images/blog1.jpg)
 ### Kiểm thử game không chỉ đơn giản là "chơi game"
 
 Trước khi đọc bài viết này, mình từng nghĩ kiểm thử game chủ yếu là vào game chơi thử rồi tìm lỗi. Nhưng thực tế công việc của đội ngũ QA phức tạp hơn rất nhiều. Sau mỗi lần game được cập nhật, họ phải thực hiện lại rất nhiều thao tác như di chuyển đến từng khu vực, nói chuyện với NPC, hoàn thành nhiệm vụ, kiểm tra điều kiện kích hoạt các sự kiện rồi xác nhận xem mọi thứ có hoạt động đúng như thiết kế hay không.
