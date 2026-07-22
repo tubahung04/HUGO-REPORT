@@ -28,7 +28,7 @@ Kiến trúc Hybrid tối ưu hóa chi phí đến mức tối đa. MongoDB lưu
 
 ### 3. Kiến trúc giải pháp
 Dự án là sự giao thoa hoàn hảo giữa kỹ thuật Software Engineering và Cloud Architecture.
-![AWS Data Pipeline Architecture](../images/2-Proposal/sodo1.png)
+![AWS Data Pipeline Architecture](/images/2-Proposal/sodo1.png)
 
 *Luồng dữ liệu AWS (Data Engine)*
 - **Amazon S3**: Lưu trữ dữ liệu Log (Data Lake).
