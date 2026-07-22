@@ -29,7 +29,7 @@ The Hybrid architecture optimizes costs to the maximum. MongoDB stores lightweig
 ### 3. Solution Architecture
 The project is a perfect intersection of Software Engineering and Cloud Architecture.
 
-![AWS Data Pipeline Architecture](/images/Diagram.png)
+![AWS Data Pipeline Architecture](/images/2-Proposal/sodo1.png)
 
 *AWS Data Flow (Data Engine)*
 - **Amazon S3**: Stores Log data (Data Lake).
@@ -58,13 +58,23 @@ The project is a perfect intersection of Software Engineering and Cloud Architec
 - *Month 3 (Weeks 9-12)*: Integrate GuardDuty onto the Threat Map. Use MongoDB to create an Alert Management feature (changing incident statuses). Embed QuickSight. Final report.
 
 ### 6. Budget Estimation
-The Hybrid model leverages MongoDB Atlas's Free Tier and AWS Serverless mechanisms:
-- *MongoDB Atlas*: Free.
-- *Web App (Vercel/Render)*: Free.
-- *Kinesis & Lambda*: Very minimal cost based on requests.
-- *Amazon Athena*: $5 per 1TB of data scanned.
-- *Amazon QuickSight*: The highest cost driver, strictly controlled by turning it on only during demos.
 
+The project is fully deployed within the **$200 AWS Free Tier Credit** provided by the internship program. To optimize costs, the EC2 Instance is strictly **turned on only when in use** and **turned off when idle**. Below is the actual cost calculation table:
+
+| Service | Estimated Cost | Notes |
+| :--- | :--- | :--- |
+| **Amazon EC2 (t3.micro)** | ~$8.00 | On/off on demand (~770 actual hours × $0.0104/hour). First 750 hours/month are free (Free Tier), excess is charged. |
+| **Amazon S3 (Data Lake)** | ~$2.50 | Storage for 50GB log data ($0.023/GB/month) + PUT/GET requests ($0.50) |
+| **Amazon Kinesis Firehose** | ~$5.00 | Processing ~100GB data ingestion ($0.029/GB after the first 500MB free) |
+| **AWS Lambda (my-log-filter)** | ~$0.50 | ~500,000 invocations × $0.20/1M requests. First 1M requests per month are free. |
+| **Amazon Athena** | ~$1.50 | ~300 queries × ~1MB data scanned per query ($5/TB). Total ~300MB scanned. |
+| **Amazon QuickSight** | ~$24.00 | 1 Author license ($24/month). Subscribed only in the final month for demo Dashboard creation. |
+| **Amazon GuardDuty** | ~$8.00 | Analyzing VPC Flow Logs (~$1.15/GB after the first 500MB free) + CloudTrail Events. |
+| **AWS CloudTrail** | ~$2.00 | 1 free Trail. Additional costs arise from S3 storage for trail logs. |
+| **VPC Flow Logs** | ~$3.00 | Pushing logs to CloudWatch Logs ($0.50/GB ingested) + S3 storage. Estimated ~6GB logs over 12 weeks. |
+| **MongoDB Atlas (M0 Free Tier)**| $0.00 | Using forever-free M0 cluster (512MB storage, sufficient for User, Alert, and TrafficLog data). |
+| **Web App Hosting (on EC2)** | $0.00 | Web App is deployed directly on the EC2 Instance above, incurring no separate hosting costs. |
+| **TOTAL** | **~$54.50** | Remaining **~$145.50** from the $200 Credit |
 ### 7. Risk Assessment
 *Risk Matrix*
 - AWS Credentials leak from the Node.js application (Impact: Very High, Probability: Medium).
