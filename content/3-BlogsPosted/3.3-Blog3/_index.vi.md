@@ -13,7 +13,7 @@ Xin chào mọi người,
 Trong quá trình tìm hiểu về AWS, mình thường đọc các bài viết trên **AWS GameTech Blog** để hiểu cách các doanh nghiệp ứng dụng dịch vụ AWS vào những bài toán thực tế. Gần đây mình đọc được bài viết ["Hypermonk Games transforms mobile game development with data powered by AWS"](https://aws.amazon.com/blogs/gametech/hypermonk-games-transforms-mobile-game-development-with-data-powered-by-aws/) và thấy đây là một bài viết khá đáng tham khảo đối với những bạn quan tâm đến kiến trúc dữ liệu (Data Architecture) hoặc phát triển game trên nền tảng Cloud.
 
 Ban đầu mình nghĩ bài viết sẽ chỉ giới thiệu các dịch vụ AWS mà Hypermonk Games sử dụng. Tuy nhiên, sau khi đọc xong, mình nhận ra điều tác giả muốn nhấn mạnh không phải là từng dịch vụ riêng lẻ, mà là cách kết hợp chúng để xây dựng một hệ thống phân tích dữ liệu hoàn chỉnh, giúp đội ngũ phát triển đưa ra quyết định dựa trên dữ liệu thay vì cảm tính.
-![Blog 3](../images/blog3.jpg)
+![Blog 3](/images/blog3.jpg)
 
 ### Dữ liệu người chơi – Tài sản quan trọng của một tựa game
 
