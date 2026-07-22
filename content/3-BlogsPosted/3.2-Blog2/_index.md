@@ -13,7 +13,7 @@ Hello everyone,
 While exploring AWS, I regularly read articles on the **AWS GameTech Blog** to see how businesses apply Cloud to their game development process. Recently, I read the article ["Open-source 3D game asset generation using AWS"](https://aws.amazon.com/vi/blogs/gametech/open-source-3d-game-asset-generation-using-aws/), and I found it a fascinating topic, especially for anyone interested in Generative AI or game development.
 
 At first, I thought the article would mainly introduce a few AI models for generating 3D images. But after finishing it, I realized what the author wanted to emphasize wasn't any single AI model — it was how open-source technologies combine with AWS infrastructure to build a faster, more flexible, and more cost-effective 3D asset creation pipeline.
-![Blog 2](/images/Blog/blog2.jpg)
+![Blog 2](/images/blog2.jpg)
 ### Creating 3D Assets Remains One of the Most Time-Consuming Steps
 
 The first thing I found interesting was that the article addresses a problem almost every game studio faces. Building 3D models for characters, weapons, or objects usually takes a lot of time and requires experienced artists.
