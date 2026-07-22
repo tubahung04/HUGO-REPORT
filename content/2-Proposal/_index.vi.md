@@ -28,8 +28,7 @@ Kiến trúc Hybrid tối ưu hóa chi phí đến mức tối đa. MongoDB lưu
 
 ### 3. Kiến trúc giải pháp
 Dự án là sự giao thoa hoàn hảo giữa kỹ thuật Software Engineering và Cloud Architecture.
-
-![AWS Data Pipeline Architecture](/images/Diagram.png)
+![AWS Data Pipeline Architecture](/images/2-Proposal/sodo1.png)
 
 *Luồng dữ liệu AWS (Data Engine)*
 - **Amazon S3**: Lưu trữ dữ liệu Log (Data Lake).
@@ -58,12 +57,23 @@ Dự án là sự giao thoa hoàn hảo giữa kỹ thuật Software Engineering
 - *Tháng 3 (Tuần 9-12)*: Tích hợp GuardDuty lên Bản đồ Threat Map. Sử dụng MongoDB để tạo tính năng Đổi trạng thái sự cố (Alert Management). Nhúng QuickSight. Báo cáo tổng kết.
 
 ### 6. Ước tính ngân sách
-Mô hình Hybrid tận dụng Free Tier của MongoDB Atlas và cơ chế Serverless của AWS:
-- *MongoDB Atlas*: Miễn phí.
-- *Web App (Vercel/Render)*: Miễn phí.
-- *Kinesis & Lambda*: Chi phí rất nhỏ giọt dựa trên request.
-- *Amazon Athena*: 5$ cho mỗi 1TB dữ liệu quét.
-- *Amazon QuickSight*: Chi phí phát sinh cao nhất sẽ được kiểm soát bằng cách chỉ bật khi demo.
+
+Dự án được triển khai hoàn toàn trong phạm vi **$200 AWS Free Tier Credit** được cấp bởi chương trình thực tập. Để tiết kiệm chi phí, EC2 Instance chỉ được **bật khi cần sử dụng** và **tắt khi không dùng**. Dưới đây là bảng tính toán chi phí thực tế:
+
+| Dịch vụ | Chi phí ước tính | Ghi chú |
+| :--- | :--- | :--- |
+| **Amazon EC2 (t3.micro)** | ~$8.00 | Bật/tắt theo nhu cầu (~770 giờ thực tế × $0.0104/giờ). 750 giờ/tháng đầu miễn phí (Free Tier), phần dư tính phí. |
+| **Amazon S3 (Data Lake)** | ~$2.50 | Lưu trữ 50GB log data ($0.023/GB/tháng) + PUT/GET requests ($0.50) |
+| **Amazon Kinesis Firehose** | ~$5.00 | Xử lý ~100GB data ingestion ($0.029/GB cho 500MB đầu tiên miễn phí) |
+| **AWS Lambda (my-log-filter)** | ~$0.50 | ~500,000 lần gọi × $0.20/1M requests. 1M requests đầu tiên miễn phí mỗi tháng |
+| **Amazon Athena** | ~$1.50 | ~300 lần query × ~1MB data scanned mỗi lần ($5/TB). Tổng ~300MB scanned |
+| **Amazon QuickSight** | ~$24.00 | 1 Author license ($24/tháng). Chỉ đăng ký 1 tháng cuối để tạo Dashboard demo |
+| **Amazon GuardDuty** | ~$8.00 | Phân tích VPC Flow Logs (~$1.15/GB cho 500MB đầu tiên miễn phí) + CloudTrail Events |
+| **AWS CloudTrail** | ~$2.00 | 1 Trail miễn phí. Chi phí phát sinh từ S3 storage cho trail logs |
+| **VPC Flow Logs** | ~$3.00 | Đẩy log về CloudWatch Logs ($0.50/GB ingested) + S3 storage. Ước tính ~6GB log trong 12 tuần |
+| **MongoDB Atlas (M0 Free Tier)**| $0.00 | Sử dụng cluster M0 miễn phí vĩnh viễn (512MB storage, đủ cho dữ liệu User, Alert, TrafficLog) |
+| **Web App Hosting (trên EC2)** | $0.00 | Web App được deploy trực tiếp trên EC2 Instance ở trên, không tốn thêm chi phí riêng |
+| **TỔNG CỘNG** | **~$54.50** | Còn dư **~$145.50** trong $200 Credit |
 
 ### 7. Đánh giá rủi ro
 *Ma trận rủi ro*
