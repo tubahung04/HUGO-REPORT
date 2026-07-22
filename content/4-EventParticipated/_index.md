@@ -6,7 +6,6 @@ chapter: false
 pre: " <b> 4. </b> "
 ---
 
-# Events Participated
 
 During my internship, I had the opportunity to participate in a technical event. It was a valuable experience that allowed me to expand my knowledge of cloud computing, learn from industry experts, and interact with other participants. The event also provided memorable experiences, meaningful insights, and interesting souvenirs.
 
