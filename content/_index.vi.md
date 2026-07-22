@@ -26,7 +26,7 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 21/4/2026 đến ngày 10/7/2026
 
-![Ảnh đại diện của bạn](images/TuBaHung.jpg)
+![Ảnh đại diện của bạn](../images/TuBaHung.jpg)
 
 
 
