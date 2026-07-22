@@ -1,4 +1,4 @@
-baseURL = "https://tubahung04.github.io/HUGO-REPORT/"
+baseURL = "https://tubahung04.github.io/hugo-report/"
 relativeURLs = false
 canonifyURLs = false
 defaultContentLanguage = "en"
