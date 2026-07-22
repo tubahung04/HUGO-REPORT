@@ -30,7 +30,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 21/04/2026 to 12/07/2026
 
-![Your profile picture](/images/TuBaHung.jpg)
+![Your profile picture](images/TuBaHung.jpg)
 
 ### Report Content
 
