@@ -13,7 +13,7 @@ Hello everyone,
 While exploring AWS, I regularly read articles on the **AWS GameTech Blog** to see how businesses apply AWS services to real-world problems. Recently, I read the article ["Building an AI game testing agent with Amazon Bedrock"](https://aws.amazon.com/vi/blogs/gametech/building-an-ai-game-testing-agent-with-amazon-bedrock/), and I found it quite an interesting topic, especially for anyone interested in Generative AI or AI Agents.
 
 At first, I thought the article would mainly introduce Amazon Bedrock or the AI models AWS provides. But after finishing it, what I found most valuable wasn't any single technology — it was how AWS combined AI with the game-testing process to automate a task that is normally very time-consuming.
-![Blog 1](/images/Blog/blog1.jpg)
+![Blog 1](/images/blog1.jpg)
 
 ### Game testing is not simply "playing the game"
 
