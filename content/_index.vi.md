@@ -16,7 +16,7 @@ chapter: false
 &emsp; **Email:** tubahung03@gmail.com
 &emsp; **Trường:** Đại học Công Nghệ Thành Phố Hồ Chí Minh
 
-&emsp; **Ngành:** Information Technology
+&emsp; **Ngành:** Công nghệ thông tin
 
 &emsp; **Lớp:** AWS082025
 
