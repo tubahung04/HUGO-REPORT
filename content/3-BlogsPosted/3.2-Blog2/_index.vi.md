@@ -13,7 +13,7 @@ Xin chào mọi người,
 Trong quá trình tìm hiểu về AWS, mình thường đọc các bài viết trên **AWS GameTech Blog** để xem các doanh nghiệp đang ứng dụng Cloud vào quy trình phát triển game như thế nào. Gần đây mình đọc được bài viết ["Open-source 3D game asset generation using AWS"](https://aws.amazon.com/vi/blogs/gametech/open-source-3d-game-asset-generation-using-aws/) và thấy đây là một chủ đề khá thú vị, đặc biệt với những ai quan tâm đến Generative AI hoặc phát triển game.
 
 Ban đầu mình nghĩ bài viết sẽ chủ yếu giới thiệu một vài mô hình AI tạo hình ảnh 3D. Tuy nhiên, sau khi đọc xong mình nhận ra điều tác giả muốn nhấn mạnh không phải là từng mô hình AI riêng lẻ, mà là cách kết hợp các công nghệ mã nguồn mở với hạ tầng AWS để xây dựng một quy trình tạo tài nguyên 3D nhanh hơn, linh hoạt hơn và tiết kiệm chi phí hơn.
-![Blog 2](/images/Blog/blog2.jpg)
+![Blog 2](../images/blog2.jpg)
 ### Tạo tài nguyên 3D vẫn là một trong những công đoạn tốn nhiều thời gian
 
 Điều mình thấy thú vị đầu tiên là bài viết nhắc đến một vấn đề mà hầu như studio game nào cũng gặp phải. Việc xây dựng các mô hình 3D cho nhân vật, vũ khí hay vật thể trong game thường mất rất nhiều thời gian và đòi hỏi đội ngũ artist có kinh nghiệm.
