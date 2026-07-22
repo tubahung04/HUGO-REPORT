@@ -13,7 +13,7 @@ Hello everyone,
 While exploring AWS, I regularly read articles on the **AWS GameTech Blog** to understand how businesses apply AWS services to real-world problems. Recently, I read the article ["Hypermonk Games transforms mobile game development with data powered by AWS"](https://aws.amazon.com/blogs/gametech/hypermonk-games-transforms-mobile-game-development-with-data-powered-by-aws/), and I found it a very valuable read for anyone interested in Data Architecture or game development on the Cloud.
 
 At first, I thought the article would only list the AWS services Hypermonk Games used. But after finishing it, I realized what the author wanted to emphasize wasn't any single service — it was how they were combined to build a complete data analytics system, helping the development team make data-driven decisions instead of relying on intuition.
-![Blog 3](/images/Blog/blog3.jpg)
+![Blog 3](/images/blog3.jpg)
 ### Player Data — An Important Asset of a Game
 
 The first thing that impressed me was how Hypermonk Games treats player data as an important asset. Every player action — starting a level, completing a quest, watching an ad, or making a purchase — generates valuable data.
